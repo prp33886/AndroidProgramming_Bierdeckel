@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "893356397801",
+    "project_id": "prp33886-app",
+    "storage_bucket": "prp33886-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893356397801:android:2ce02029bc73203069cc78",
+        "android_client_info": {
+          "package_name": "org.wit.Bierdeckel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "893356397801-oe1evsia4dht5k0k229pt4ljgej46ppg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0g5qSnHsJrYM4ACrE-lQxAXIHTUMnhXo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "893356397801-oe1evsia4dht5k0k229pt4ljgej46ppg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893356397801:android:f88d21035ca4c31069cc78",
+        "android_client_info": {
+          "package_name": "org.wit.bierdeckel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "893356397801-oe1evsia4dht5k0k229pt4ljgej46ppg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0g5qSnHsJrYM4ACrE-lQxAXIHTUMnhXo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "893356397801-oe1evsia4dht5k0k229pt4ljgej46ppg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

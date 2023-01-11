@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white_grey">#B3ABBD</color>
+    <color name="purple_500">#9C98A1</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="yellow">#FFEB3B</color>
+
+    <color name="buttonColor">#473A3A</color>
+    <color name="weiß_leichtbraun">#FFF8F0</color>
+
+
+    ToDO: noch einpflegen und farbenlayout anpassen
+    FFF8F0	weiß mit einem halben Hauch braun	-> Überschrift
+    FFF0E0	weiß mit einem Hauch braun	.
+    FFE0C0	weiß mit etwas mehr braun	.
+    FFC080	leichtbraun	.
+    FFA040	hellbraun	.
+    FF8000	braun
+
+
+</resources>

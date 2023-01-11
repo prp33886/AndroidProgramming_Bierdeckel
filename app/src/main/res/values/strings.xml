@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">Bierdeckel</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="user_Name">Pascal Pribyl</string>
+    <string name="user_Email">Pascal-Pribyl@web.de</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Einstellungen</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Galerie</string>
+    <string name="phoneText">Gib deine Telefonnummer ein</string>
+    <string name="menu_admin_center">Admin Center</string>
+    <string name="menu_debts">Schulden</string>
+    <string name="menu_settings">Profilverwaltung</string>
+    <string name="menu_logout">Logout</string>
+    <string name="logout">Sicher dass du dich ausloggen willst?</string>
+    <string name="firstName_debtList">Vorname:</string>
+    <string name="LastName_debtList">Nachname:</string>
+    <string name="debt_debtList">Schulden:</string>
+
+
+    <string name="userInformations">Profilverwaltung</string>
+    <string name="userInfoÜberschrift">Useraufforderung</string>
+    <string name="alter">Alter</string>
+    <string name="geschlecht">Geschlecht</string>
+    <string name="stadt">Stadt</string>
+    <string name="vorName">Vorname</string>
+
+    <string name="dummyTelefonNummer">+49 xxxxxxxx</string>
+    <string name="dummyAlter">32</string>
+    <string name="dummyStadt">Musterstadt</string>
+    <string name="dummyVorName">Max</string>
+    <string name="dummyNachName">Mustermann</string>
+    <string name="dummyEmail">Max-Mustermann@mail.com</string>
+
+
+    <string name="home_mapView">mapView</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string name="nav_BarsMap">Private Bars</string>
+    <string name="nachName">Nachname</string>
+    <string name="land">Land</string>
+    <string name="dummyLand">Deutschland</string>
+    <string name="email">E-Mail-Adresse</string>
+    <string name="telefonnummer">Telefonnummer (mobil)</string>
+    <string name="maennlich">Männlich</string>
+    <string name="weiblich">Weiblich</string>
+    <string name="buttonSpeichern">Speichern</string>
+    <string name="buttonAbbrechen">Abbrechen</string>
+    <string name="plus">+</string>
+    <string name="buchen">Buchen</string>
+    <string name="minus">-</string>
+    <string name="defaultAmount">0,00 €</string>
+    <string name="abbruch">Abbruch</string>
+    <string name="register">Registrieren</string>
+    <string name="registerEmailHint">Gib deine Email Adresse ein</string>
+    <string name="registerPasswortHint">Gib dein Passwort ein</string>
+    <string name="alreadyRegistered">Bereits registriert? Logge dich ein!</string>
+    <string name="logoDescription">Bierdeckel Logo</string>
+    <string name="menu_bars_map">Private Bars</string>
+
+    <string name="barNameHint">Gib den Namen deiner Bar ein</string>
+    <string name="barKategorie">Gib deine Kategorie ein</string>
+    <string name="barBeschreibung">Beschreibe deine Bar</string>
+    <string name="barAnlegen">Anlegen</string>
+    <string name="hinzufuegen">Hinzufügen</string>
+    <string name="registered">Registriert</string>
+    <string name="alle">Alle</string>
+    <string name="SchuldnerNameHint">Gib den Vornamen ein</string>
+    <string name="SchuldnerNachNameHint">Gib den Nachname ein</string>
+    <string name="customDebtAmountHint">Gib den Schuldenstand ein</string>
+    <string name="deinDeckel">Dein Deckel</string>
+    <string name="kalenderUeberschrift">Bevorstehende Veranstaltungen</string>
+    <string name="select_user_image">Profilbild</string>
+
+
+</resources>
