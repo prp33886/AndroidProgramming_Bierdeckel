@@ -16,6 +16,7 @@ class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var app: MainApp
+    private lateinit var uID: String
 
 
 
@@ -25,6 +26,8 @@ class SignInActivity : AppCompatActivity() {
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+            var x = "gtEqpmYsKGVQkwZR2atrT8chIg82"
+        println(x.hashCode().toString())
 
         app = application as MainApp
 
@@ -42,6 +45,8 @@ class SignInActivity : AppCompatActivity() {
 
                 firebaseAuth.signInWithEmailAndPassword(email, passwort).addOnCompleteListener {
                     if (it.isSuccessful) {
+                        uID= firebaseAuth.currentUser?.uid!!
+                        app.getUserDB(uID)
                         val intent = Intent(this, MainActivity::class.java)
                         Toast.makeText(this, "Erfolgreich eingeloggt!", Toast.LENGTH_LONG)
                         startActivity(intent)

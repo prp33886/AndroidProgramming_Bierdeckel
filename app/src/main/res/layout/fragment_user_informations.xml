@@ -5,176 +5,306 @@
     android:id="@+id/backround"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bierdeckel_mit_hintergrund_quadrat"
     tools:context=".ui.userInformation.UserInformationsFragment">
 
 
-    <EditText
-        android:id="@+id/adresseStadtEingabe"
-        android:layout_width="161dp"
-        android:layout_height="58dp"
-        android:ems="10"
-        android:hint="Stadt"
-        android:inputType="textPostalAddress"
-        android:minHeight="48dp"
+    <TextView
+        android:id="@+id/landText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/land"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/userProfilPic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.586"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.479" />
+        app:layout_constraintVertical_bias="0.514" />
 
-    <EditText
-        android:id="@+id/adresseStrasseEingabe"
-        android:layout_width="383dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:hint="Straße Hausnummer"
-        android:inputType="textPostalAddress"
-        android:minHeight="48dp"
+    <CheckBox
+        android:id="@+id/checkBoxWeiblich"
+        android:layout_width="82dp"
+        android:layout_height="48dp"
+        android:text="@string/weiblich"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/eMailText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.325"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.609" />
+        app:layout_constraintVertical_bias="0.572" />
 
     <TextView
-        android:id="@+id/profilInfoText"
-        android:layout_width="221dp"
-        android:layout_height="56dp"
-        android:contentDescription="Useraufforderung"
-        android:text="Profilinformationen"
-        android:textSize="16sp"
+        android:id="@+id/nachNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nachName"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/geburtsdatumText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.041" />
+        app:layout_constraintVertical_bias="0.201" />
+
+    <TextView
+        android:id="@+id/vorNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/vorName"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.114" />
+
+    <EditText
+        android:id="@+id/nachNameTextEingabe"
+        style="@style/Animation.Design.BottomSheetDialog"
+        android:layout_width="174dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="@string/dummyNachName"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.063"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.234" />
+
+    <EditText
+        android:id="@+id/vorNameTextEingabe"
+        style="@style/Animation.Design.BottomSheetDialog"
+        android:layout_width="174dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="@string/dummyVorName"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.063"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.132" />
+
+    <TextView
+        android:id="@+id/geschlechtText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/geschlecht"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.518" />
+
+    <EditText
+        android:id="@+id/StadtTextEingabe"
+        android:layout_width="174dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="@string/dummyStadt"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.94"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.451" />
+
+    <EditText
+        android:id="@+id/landTextEingabe"
+        android:layout_width="172dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="@string/dummyLand"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.933"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.556" />
 
     <ImageView
         android:id="@+id/userProfilPic"
-        android:layout_width="151dp"
-        android:layout_height="139dp"
+        android:layout_width="128dp"
+        android:layout_height="110dp"
+        android:cropToPadding="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.938"
+        app:layout_constraintHorizontal_bias="0.858"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05"
+        app:layout_constraintVertical_bias="0.132"
         tools:src="@tools:sample/avatars" />
 
     <EditText
         android:id="@+id/eMailTextEingabe"
-        android:layout_width="234dp"
-        android:layout_height="48dp"
         style="@style/Animation.Design.BottomSheetDialog"
+        android:layout_width="174dp"
+        android:layout_height="48dp"
         android:ems="10"
-        android:hint="mustermann@gmail.com"
+        android:hint="@string/dummyEmail"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.073"
+        app:layout_constraintHorizontal_bias="0.063"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.779"
-        />
+        app:layout_constraintVertical_bias="0.878" />
 
     <EditText
         android:id="@+id/telefonNummerTextEingabe"
-        android:layout_width="161dp"
-        android:layout_height="58dp"
+        android:layout_width="174dp"
+        android:layout_height="48dp"
         android:ems="10"
-        android:hint="+49 16000004"
+        android:hint="@string/dummyTelefonNummer"
         android:inputType="phone"
         android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/adressePlzEingabe"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.327" />
-
-    <EditText
-        android:id="@+id/adressePlzEingabe"
-        android:layout_width="161dp"
-        android:layout_height="58dp"
-        android:ems="10"
-        android:hint="Postleitzahl"
-        android:inputType="textPostalAddress"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/adresseStrasseEingabe"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.48" />
-
-    <EditText
-        android:id="@+id/geburtsDatumTextEingabe"
-        android:layout_width="161dp"
-        android:layout_height="58dp"
-        android:ems="10"
-        android:hapticFeedbackEnabled="false"
-        android:hint="01.01.1990"
-        android:inputType="date"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/telefonNummerTextEingabe"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.183" />
-
-    <Button
-        android:id="@+id/buttonUserinformationSpeicher"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Speichern"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.063"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.973" />
+        app:layout_constraintVertical_bias="0.779" />
+
+    <EditText
+        android:id="@+id/alterTextEingabe"
+        android:layout_width="174dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:fadingEdge="horizontal"
+        android:hapticFeedbackEnabled="false"
+        android:hint="@string/dummyAlter"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/telefonNummerTextEingabe"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.453" />
+
+    <Button
+        android:id="@+id/buttonUserinformationSpeichern"
+        android:layout_width="130dp"
+        android:layout_height="48dp"
+        android:text="@string/buttonSpeichern"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.864"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.765" />
+
+    <Button
+        android:id="@+id/buttonUserinformationAbbrechen"
+        android:layout_width="130dp"
+        android:layout_height="48dp"
+        android:text="@string/buttonAbbrechen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.864"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.867" />
 
     <TextView
         android:id="@+id/eMailText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="E-Mail-Adresse"
+        android:text="@string/email"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/eMailTextEingabe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.714" />
+        app:layout_constraintVertical_bias="0.829" />
 
     <TextView
         android:id="@+id/telefonNummerText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Telefonnummer (mobil)"
+        android:text="@string/telefonnummer"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.282" />
+        app:layout_constraintVertical_bias="0.732" />
 
     <TextView
-        android:id="@+id/adresseText"
+        android:id="@+id/stadtText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Adresse"
+        android:text="@string/stadt"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.036"
+        app:layout_constraintHorizontal_bias="0.591"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.423" />
+        app:layout_constraintVertical_bias="0.415" />
 
     <TextView
         android:id="@+id/geburtsdatumText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Geburtsdatum"
+        android:text="@string/alter"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/geburtsDatumTextEingabe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.146" />
+        app:layout_constraintVertical_bias="0.417" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
+        app:layout_constraintGuide_begin="15dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="73dp" />
+
+    <CheckBox
+        android:id="@+id/checkBoxMännlich"
+        android:layout_width="82dp"
+        android:layout_height="48dp"
+        android:text="@string/maennlich"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.571" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

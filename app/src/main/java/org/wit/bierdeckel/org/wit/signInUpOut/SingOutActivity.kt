@@ -3,9 +3,17 @@ package org.wit.bierdeckel.org.wit.signInUpOut
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.ui.AppBarConfiguration
+import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import org.wit.bierdeckel.databinding.ActivityLogOutBinding
 import org.wit.bierdeckel.MainActivity
+import org.wit.bierdeckel.R
 
 
 class SingOutActivity : AppCompatActivity() {
@@ -21,7 +29,6 @@ class SingOutActivity : AppCompatActivity() {
 
 
 
-
         binding.buttonLogout.setOnClickListener(){
 
 
@@ -32,7 +39,7 @@ class SingOutActivity : AppCompatActivity() {
 
         }
 
-        binding.button3.setOnClickListener(){
+        binding.buttonAbbrechen.setOnClickListener(){
 
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
@@ -40,7 +47,9 @@ class SingOutActivity : AppCompatActivity() {
         }
 
 
-
-
     }
+
+
 }
+
+

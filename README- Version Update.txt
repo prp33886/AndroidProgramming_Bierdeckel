@@ -2,10 +2,14 @@
 
 
 Fortschritt:
-Recyclerview + Adapter in Schuldenliste erstellt => zeigt bis jetzt noch dummyinfos an
+Abruf der Userdate über Datenbank
+Userdaten änderbar über UserInformationsFragment 
+Userinformationen Design überarbeitet
+Userinfos ergänzt
+Schulden über DB abrufen
+
 
 
 ToDo:
-DB verbindung herstellen und Daten in Liste abspeichern
-Mainapp einfügen
-Ändern/speichern button bei Userinfor funktionalität
+Userschulden in DB einfügen
+Schulden hinzufügen button und switch Funktion bauen

@@ -2,7 +2,6 @@ package org.wit.bierdeckel
 
 import android.os.Bundle
 import android.view.Menu
-import android.widget.Button
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -13,10 +12,13 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import org.wit.bierdeckel.R
 import org.wit.bierdeckel.databinding.ActivityMainBinding
 import org.wit.bierdeckel.models.debtModel
+import org.wit.bierdeckel.models.userModel
 
 
 class MainActivity : AppCompatActivity() {
@@ -35,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.appBarMain.toolbar)
 
         // Datenbank Test ToDo: Message Button überarbeiten!
-        database = FirebaseDatabase.getInstance().getReference("News")
+        database = FirebaseDatabase.getInstance("https://prp33886-app-default-rtdb.europe-west1.firebasedatabase.app/").getReference("News")
         val news = database.get().toString()
         Toast.makeText(this, news, Toast.LENGTH_LONG)
 
@@ -49,8 +51,15 @@ class MainActivity : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
+
+
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_userInformations, R.id.nav_logout
+                R.id.nav_home,
+                R.id.nav_gallery,
+                R.id.nav_barsMap,
+                R.id.nav_slideshow,
+                R.id.nav_userInformations,
+                R.id.nav_logout
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

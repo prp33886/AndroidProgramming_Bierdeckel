@@ -9,6 +9,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import org.wit.bierdeckel.databinding.ActivitySignUpBinding
+import org.wit.bierdeckel.models.debtModel
 import org.wit.bierdeckel.models.userModel
 
 class SignUpActivity : AppCompatActivity() {
@@ -16,6 +17,7 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var database: DatabaseReference
+    private lateinit var uID: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,8 +44,10 @@ class SignUpActivity : AppCompatActivity() {
                         if (it.isSuccessful) {
                             database = FirebaseDatabase.getInstance("https://prp33886-app-default-rtdb.europe-west1.firebasedatabase.app/").getReference()
 
-                            var user: userModel = userModel("","",email,"",androidId,"","","","")
-                            database.child("User").child(androidId).setValue(user)
+                            uID= firebaseAuth.currentUser?.uid!!
+
+                            var user: userModel = userModel("","","","",email,"",uID,"","", debtModel("","",0.0))
+                            database.child("User").child(uID).setValue(user)
                             val intent = Intent(this, SignInActivity::class.java)
                             startActivity(intent)
                         } else {

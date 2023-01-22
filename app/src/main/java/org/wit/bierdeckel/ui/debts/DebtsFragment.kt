@@ -40,6 +40,8 @@ class DebtsFragment : Fragment() {
         val root: View = binding.root
 
         app = (activity?.application as MainApp)
+        app.getDebts()
+
         return root
     }
 
@@ -62,6 +64,13 @@ class DebtsFragment : Fragment() {
         recyclerView.setHasFixedSize(true)
         adapter = debtAdapter(app.schulden)
         recyclerView.adapter= adapter
+
+
+        binding.switch1.setOnClickListener(){
+            Snackbar.make(view, "Hier liste filtern", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
+
+        }
 
 
     }

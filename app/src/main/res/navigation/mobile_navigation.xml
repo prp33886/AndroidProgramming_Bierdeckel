@@ -19,18 +19,23 @@
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="org.wit.bierdeckel.ui.debts.debtsListFragment"
+        android:name="org.wit.bierdeckel.ui.debts.DebtsFragment"
         android:label="@string/menu_debts"
         tools:layout="@layout/fragment_debts" />
     <fragment
         android:id="@+id/nav_userInformations"
         android:name="org.wit.bierdeckel.ui.userInformation.UserInformationsFragment"
-        android:label="fragment_user_informations"
+        android:label="@string/menu_settings"
         tools:layout="@layout/fragment_user_informations" />
+    <fragment
+        android:id="@+id/nav_barsMap"
+        android:name="org.wit.bierdeckel.ui.bars.MapsFragment"
+        android:label="@string/menu_settings"
+        tools:layout="@layout/fragment_maps" />
 
     <activity
         android:id="@+id/nav_logout"
-        android:name="org.wit.bierdeckel.org.wit.signInUpOut.Logout"
+        android:name="org.wit.bierdeckel.org.wit.signInUpOut.SingOutActivity"
         android:label="activity_log_out"
         tools:layout="@layout/activity_log_out" />
 
