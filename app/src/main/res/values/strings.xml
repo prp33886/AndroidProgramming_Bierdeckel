@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Bierdeckel</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="user_Name">Pascal Pribyl</string>
+    <string name="user_Email">Pascal-Pribyl@web.de</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Einstellungen</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Galerie</string>
+    <string name="phoneText">Gib deine Telefonnummer ein</string>
+    <string name="menu_admin_center">Admin Center</string>
+    <string name="menu_debts">Schulden</string>
+    <string name="menu_settings">Profilverwaltung</string>
+    <string name="menu_logout">Logout</string>
+    <string name="logout">Sicher dass du dich ausloggen willst?</string>
+    <string name="firstName_debtList">Vorname:</string>
+    <string name="LastName_debtList">Nachname:</string>
+    <string name="debt_debtList">Schulden:</string>
+</resources>
