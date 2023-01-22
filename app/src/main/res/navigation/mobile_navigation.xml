@@ -19,9 +19,9 @@
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="org.wit.bierdeckel.ui.debts.SlideshowFragment"
+        android:name="org.wit.bierdeckel.ui.debts.DebtsFragment"
         android:label="@string/menu_debts"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_debts" />
     <fragment
         android:id="@+id/nav_userInformations"
         android:name="org.wit.bierdeckel.ui.userInformation.UserInformationsFragment"
@@ -30,7 +30,7 @@
 
     <activity
         android:id="@+id/nav_logout"
-        android:name="org.wit.bierdeckel.org.wit.signInUpOut.Logout"
+        android:name="org.wit.bierdeckel.org.wit.signInUpOut.SingOutActivity"
         android:label="activity_log_out"
         tools:layout="@layout/activity_log_out" />
 

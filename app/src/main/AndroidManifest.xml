@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools" >
 
     <application
+        android:name=".main.MainApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,14 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginAndSignUp" >
         <activity
-            android:name=".org.wit.signInUpOut.Logout"
-            android:exported="false" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".CustomActivity"
+            android:name=".org.wit.signInUpOut.SingOutActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
