@@ -87,6 +87,8 @@
         android:hint="@string/dummyVorName"
         android:inputType="text"
         android:minHeight="48dp"
+        android:textColorHighlight="@color/buttonColor"
+        android:textColorLink="@color/buttonColor"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -142,16 +144,15 @@
 
     <ImageView
         android:id="@+id/userProfilPic"
-        android:layout_width="128dp"
-        android:layout_height="110dp"
-        android:cropToPadding="false"
+        android:layout_width="148dp"
+        android:layout_height="137dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.858"
+        app:layout_constraintHorizontal_bias="0.878"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.132"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintVertical_bias="0.139"
+        app:srcCompat="@drawable/bierdeckel_logo_kreis" />
 
     <EditText
         android:id="@+id/eMailTextEingabe"
@@ -208,25 +209,27 @@
         android:id="@+id/buttonUserinformationSpeichern"
         android:layout_width="130dp"
         android:layout_height="48dp"
+        android:backgroundTint="#473A3A"
         android:text="@string/buttonSpeichern"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.864"
+        app:layout_constraintHorizontal_bias="0.857"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.765" />
+        app:layout_constraintVertical_bias="0.779" />
 
     <Button
         android:id="@+id/buttonUserinformationAbbrechen"
         android:layout_width="130dp"
         android:layout_height="48dp"
+        android:backgroundTint="#473A3A"
         android:text="@string/buttonAbbrechen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.864"
+        app:layout_constraintHorizontal_bias="0.857"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.867" />
+        app:layout_constraintVertical_bias="0.877" />
 
     <TextView
         android:id="@+id/eMailText"
@@ -246,6 +249,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/telefonnummer"
+        android:textAlignment="viewStart"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -285,7 +289,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="15dp" />
+        app:layout_constraintGuide_begin="16dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"

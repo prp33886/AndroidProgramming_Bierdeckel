@@ -4,24 +4,5 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.gallery.GalleryFragment">
-
-    <ScrollView
-        android:id="@+id/galleryScroll"
-        android:layout_width="352dp"
-        android:layout_height="550dp"
-        android:contentDescription="@string/app_name"
-        android:scrollbarStyle="outsideOverlay"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    android:background="@drawable/holz_hintergrund"
+    tools:context=".ui.gallery.GalleryFragment" />

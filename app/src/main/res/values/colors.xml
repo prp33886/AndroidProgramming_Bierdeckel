@@ -8,4 +8,34 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="yellow">#FFEB3B</color>
+
+    <color name="buttonColor">#473A3A</color>
+
+
+
+
+
+   /* loralwhite	#FFFAF0
+    oldlace	#FDF5E6
+    linen	#FAF0E6
+    antiquewhite	#FAEBD7
+    papayawhip	#FFEFD5
+    wheat	#F5DEB3
+    burlywood	#DEB887
+    tan	#D2B48C
+    cornsilk	#FFF8DC
+    moccasin	#FFE4B5
+    navajowhite	#FFDEAD
+    blanchedalmond	#FFEBCD
+    bisque	#FFE4C4
+    peachpuff	#FFDAB9
+    darkgoldenrod	#B8860B
+    rosybrown	#BC8F8F
+    sandybrown	#F4A460
+    peru	#CD853F
+    chocolate	#D2691E
+    sienna	#A0522D
+    saddlebrown	#8B4513
+    brown	#A52A2A
+    maroon	#800000*/
 </resources>

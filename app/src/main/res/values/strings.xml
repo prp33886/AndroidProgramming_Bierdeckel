@@ -48,6 +48,16 @@
     <string name="weiblich">Weiblich</string>
     <string name="buttonSpeichern">Speichern</string>
     <string name="buttonAbbrechen">Abbrechen</string>
+    <string name="plus">+</string>
+    <string name="buchen">Buchen</string>
+    <string name="minus">-</string>
+    <string name="defaultAmount">0,00 €</string>
+    <string name="abbruch">Abbruch</string>
+    <string name="register">Registrieren</string>
+    <string name="registerEmailHint">Gib deine Email Adresse ein</string>
+    <string name="registerPasswortHint">Gib dein Passwort ein</string>
+    <string name="alreadyRegistered">Bereits registriert? Logge dich ein!</string>
+    <string name="logoDescription">Bierdeckel Logo</string>
 
 
 </resources>

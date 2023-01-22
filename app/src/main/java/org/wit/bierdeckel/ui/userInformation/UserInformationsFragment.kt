@@ -17,6 +17,7 @@ import org.wit.bierdeckel.MainActivity
 import org.wit.bierdeckel.R
 import org.wit.bierdeckel.databinding.FragmentUserInformationsBinding
 import org.wit.bierdeckel.main.MainApp
+import org.wit.bierdeckel.models.debtModel
 import org.wit.bierdeckel.models.userModel
 
 class UserInformationsFragment : Fragment() {
@@ -45,7 +46,6 @@ class UserInformationsFragment : Fragment() {
 
         // Userinformationen setzten
             fillUserInfo()
-            binding.userProfilPic.setImageDrawable(R.drawable.ic_launcher_foreground.toDrawable())
 
        // binding.userProfilPic.setImageDrawable(app.user.profilPic)
 
@@ -68,10 +68,15 @@ class UserInformationsFragment : Fragment() {
 
     fun editUserInformations(){
 
+
+
         database = FirebaseDatabase.getInstance("https://prp33886-app-default-rtdb.europe-west1.firebasedatabase.app/").getReference()
 
-        app.user.vorName=binding.vorNameTextEingabe.text.toString()
-        app.user.nachName=binding.nachNameTextEingabe.text.toString()
+        var vorname = binding.vorNameTextEingabe.text.toString()
+        var nachname= binding.nachNameTextEingabe.text.toString()
+
+        app.user.vorName=vorname
+        app.user.nachName=nachname
         app.user.alter=binding.alterTextEingabe.text.toString()
 
         if(binding.checkBoxMNnlich.isChecked){
@@ -87,7 +92,16 @@ class UserInformationsFragment : Fragment() {
         app.user.stadt=binding.StadtTextEingabe.text.toString()
         app.user.land=binding.landTextEingabe.text.toString()
 
-        //Setzt Datenbankchild auf PK Email
+
+        //Schuldenliste DB aktualisieren
+        var newDebt = app.getUserDebt(app.user.userID)
+        newDebt.schuldnerVorName=vorname
+        newDebt.schuldnerNachname=nachname
+        newDebt.schuldnerID=app.user.userID
+        newDebt.schulden=app.user.schulden.schulden
+
+
+        database.child("Schulden").child(app.user.userID).setValue(newDebt)
         database.child("User").child(app.user.userID).setValue(app.user)
 
     }

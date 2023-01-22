@@ -26,13 +26,10 @@ class SignInActivity : AppCompatActivity() {
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-            var x = "gtEqpmYsKGVQkwZR2atrT8chIg82"
-        println(x.hashCode().toString())
-
         app = application as MainApp
 
         firebaseAuth = FirebaseAuth.getInstance()
-        binding.textView.setOnClickListener {
+        binding.alreadyRegisteredText.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
@@ -47,8 +44,10 @@ class SignInActivity : AppCompatActivity() {
                     if (it.isSuccessful) {
                         uID= firebaseAuth.currentUser?.uid!!
                         app.getUserDB(uID)
-                        val intent = Intent(this, MainActivity::class.java)
+                        app.getDebts()
                         Toast.makeText(this, "Erfolgreich eingeloggt!", Toast.LENGTH_LONG)
+                        val intent = Intent(this, MainActivity::class.java)
+
                         startActivity(intent)
 
 
@@ -58,21 +57,26 @@ class SignInActivity : AppCompatActivity() {
                     }
                 }
             } else {
-                Toast.makeText(this, "Keine leeren Felder!!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Passwort oder Nutzername falsch!", Toast.LENGTH_SHORT).show()
 
             }
         }
     }
 
     // Eingeloggt bleiben beim starten
-    /*override fun onStart() {
+    override fun onStart() {
         super.onStart()
 
         if(firebaseAuth.currentUser != null){
+
+             uID= firebaseAuth.currentUser?.uid!!
+             app.getUserDB(uID)
+             app.getDebts()
+
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }
-    */
+
 
 }

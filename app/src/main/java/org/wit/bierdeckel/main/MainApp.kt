@@ -1,14 +1,9 @@
 package org.wit.bierdeckel.main
 
 import android.app.Application
-import androidx.core.graphics.drawable.toDrawable
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.GenericTypeIndicator
-
-import org.wit.bierdeckel.R
+import com.google.firebase.database.*
 import org.wit.bierdeckel.models.debtModel
+import org.wit.bierdeckel.models.priceListModel
 import org.wit.bierdeckel.models.userModel
 
 
@@ -17,14 +12,21 @@ class MainApp : Application() {
     var schulden : ArrayList<debtModel> = ArrayList<debtModel>()
     lateinit var user : userModel
     lateinit var database: DatabaseReference
-
+    var pricelist : priceListModel = priceListModel("default", ArrayList<String>())
 
 
     override fun onCreate() {
         super.onCreate()
+        pricelist.setDefault()
+        getCurrentPriceList()
 
 
 
+    }
+
+    // ToDo: DB verbindung herstellen
+    private fun getCurrentPriceList() {
+        println("Pricelist abrufen von DB")
     }
 
 
@@ -73,20 +75,50 @@ class MainApp : Application() {
 
         database.child("Schulden").get().addOnCompleteListener {
             if (it.isSuccessful) {
-                val gti = object : GenericTypeIndicator<List<debtModel>>() {}
-                val s = it.result.getValue(gti)
+                val gti = object : GenericTypeIndicator<HashMap<String,debtModel>>() {}
+                var s = it.result.getValue(gti)
 
-                this.schulden= s as ArrayList<debtModel>
+
+                if (s != null) {
+                    schulden.clear()
+                    s.forEach { key, value -> schulden.add(value) }
+
+                } else{
+                    println("Schuldenliste konnte nicht hinzugefügt werden")
+                }
+
 
             } else {
-                println("Fehler")
+                println("Fehler beim Schuldenabruf")
             }
         }
 
     }
 
+
+    fun getUserDebt(uID : String) : debtModel{
+
+        for (each in schulden){
+            if (each.schuldnerID==uID) {
+                return each
+            }
+        }
+        return debtModel("","",0.0,uID)
+    }
+
+    fun updateUserDebt(debt : debtModel){
+        database = FirebaseDatabase.getInstance("https://prp33886-app-default-rtdb.europe-west1.firebasedatabase.app/").getReference()
+
+
+        database.child("Schulden").child(debt.schuldnerID.toString()).setValue(debt)
+
+    }
+
+
+
     //dummyUser einfügen
     /*
+
     fun dummyUser(){
         var vorName="Hans"
         var nachName="Huber"
@@ -105,21 +137,30 @@ class MainApp : Application() {
 
 
     //dummyschulden einfügen
-    /*
+
     fun dummySchulden(){
         database = FirebaseDatabase.getInstance("https://prp33886-app-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Schulden")
         var i =0
         while (i<10){
-            var x= debtModel("Pascal$i", "Pribyl", 10.2)
+            var x= debtModel("Pascal$i", "Pribyl", 10.2,i.toString())
             schulden.add(x.copy())
 
-            //database.child("$i").setValue(x)
+            database.child("$i").setValue(x)
 
             i++
         }
 
 
+    }
 
-    }*/
+    fun bookNewDebt(currentDebt: debtModel, amount: Double) {
+
+        var currentUID = currentDebt.schuldnerID.toString()
+
+        getUserDebt(currentUID).schulden = getUserDebt(currentUID).schulden?.plus(amount)
+
+        updateUserDebt(getUserDebt(currentUID))
+
+    }
 
 }
