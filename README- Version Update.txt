@@ -2,11 +2,10 @@
 
 
 Fortschritt:
-MainApp eingefügt -> schulden und User wird zentral zugegriffen 
+Recyclerview + Adapter in Schuldenliste erstellt => zeigt bis jetzt noch dummyinfos an
 
 
 ToDo:
-Userinformationen Design ändern
-Userinfos ergänzen
-Schulden hinzufügen button und switch Funktion bauen
-Dummydaten durch DB verbindung ersetzen
+DB verbindung herstellen und Daten in Liste abspeichern
+Mainapp einfügen
+Ändern/speichern button bei Userinfor funktionalität
