@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
@@ -16,6 +17,7 @@ import org.wit.bierdeckel.R
 import org.wit.bierdeckel.adapters.DebtListener
 import org.wit.bierdeckel.adapters.debtAdapter
 import org.wit.bierdeckel.databinding.FragmentDebtsBinding
+import org.wit.bierdeckel.helpers.SwipeToDeleteCallback
 import org.wit.bierdeckel.main.MainApp
 import org.wit.bierdeckel.models.debtModel
 
@@ -67,6 +69,19 @@ class DebtsFragment : Fragment(), DebtListener {
         recyclerView.setHasFixedSize(true)
         adapter = debtAdapter(app.schulden, this)
         recyclerView.adapter= adapter
+
+        val swipeToDeleteCallback = object : SwipeToDeleteCallback(){
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.adapterPosition
+                app.schulden.removeAt(position)
+                recyclerView.adapter?.notifyItemRemoved(position)
+
+            }
+
+        }
+
+        val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallback)
+        itemTouchHelper.attachToRecyclerView(recyclerView)
 
 
         binding.switch1.textOn = "Nicht Registrierte"

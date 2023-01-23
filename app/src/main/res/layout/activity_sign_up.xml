@@ -10,14 +10,15 @@
 
     <ImageView
         android:id="@+id/logoSignUp"
-        android:layout_width="241dp"
-        android:layout_height="234dp"
+        android:layout_width="match_parent"
+        android:layout_height="162dp"
         android:contentDescription="@string/logoDescription"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.037"
+        app:layout_constraintVertical_bias="0.372"
         app:srcCompat="@drawable/bierdeckel_logo_kreis" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -49,8 +50,9 @@
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="260dp"
+        android:id="@+id/constraintLayout2"
+        android:layout_width="426dp"
+        android:layout_height="342dp"
         android:background="@drawable/braun_rund_2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,11 +62,60 @@
         app:layout_constraintVertical_bias="0.650">
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/confirmPasswordLayout"
+            style="@style/LoginTextInputOuterFieldStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="75dp"
+            app:boxStrokeColor="@color/buttonColor"
+            app:hintTextColor="@color/buttonColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/passwordLayout"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/confirmPassEt"
+                style="@style/LoginTextInputInnerFieldStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/registerPasswortHint"
+                android:inputType="textPassword"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordLayout"
+            style="@style/LoginTextInputOuterFieldStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="75dp"
+            app:boxStrokeColor="@color/buttonColor"
+            app:hintTextColor="@color/buttonColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/emailLayout"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passET"
+                style="@style/LoginTextInputInnerFieldStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/registerPasswortHint"
+                android:inputType="textPassword"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emailLayout"
             style="@style/LoginTextInputOuterFieldStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="15dp"
             app:boxStrokeColor="@color/buttonColor"
             app:hintTextColor="@color/buttonColor"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -84,53 +135,26 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/passwordLayout"
-            style="@style/LoginTextInputOuterFieldStyle"
+        <LinearLayout
+            android:id="@+id/spinner_Layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="68dp"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="75dp"
             app:boxStrokeColor="@color/buttonColor"
             app:hintTextColor="@color/buttonColor"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/emailLayout"
-            app:passwordToggleEnabled="true">
+            app:layout_constraintTop_toTopOf="@+id/confirmPasswordLayout">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/passET"
-                style="@style/LoginTextInputInnerFieldStyle"
+            <Spinner
+                android:id="@+id/barSpinner"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/registerPasswortHint"
-                android:inputType="textPassword"
-                android:textSize="15sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/confirmPasswordLayout"
-            style="@style/LoginTextInputOuterFieldStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="77dp"
-            app:boxStrokeColor="@color/buttonColor"
-            app:hintTextColor="@color/buttonColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/passwordLayout"
-            app:passwordToggleEnabled="true">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/confirmPassEt"
-                style="@style/LoginTextInputInnerFieldStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/registerPasswortHint"
-                android:inputType="textPassword"
-                android:textSize="15sp" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

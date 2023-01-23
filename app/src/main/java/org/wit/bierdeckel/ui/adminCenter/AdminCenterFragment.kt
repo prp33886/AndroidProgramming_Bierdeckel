@@ -7,11 +7,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.GoogleMap
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.squareup.picasso.Picasso
 import org.wit.bierdeckel.R
 import org.wit.bierdeckel.databinding.FragmentAdminCenterBinding
@@ -44,6 +46,8 @@ class AdminCenterFragment : Fragment() {
         val root: View = binding.root
 
         return root
+
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -75,7 +79,21 @@ class AdminCenterFragment : Fragment() {
 
             }
 
-            println(bar)
+            if (bar.name.isNotEmpty() && bar.beschreibung.isNotEmpty() && kat.isNotEmpty()){
+
+                database = FirebaseDatabase.getInstance("https://prp33886-app-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Bars")
+                database.push().setValue(bar.name)
+
+
+                Toast.makeText(requireContext().applicationContext, "Deine Bar wurde angelegt!", Toast.LENGTH_SHORT).show()
+
+            }else{
+
+                Toast.makeText(requireContext().applicationContext, "Keine Leeren Felder!", Toast.LENGTH_SHORT).show()
+            }
+
+
+
         }
 
 

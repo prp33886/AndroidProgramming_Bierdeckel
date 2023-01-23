@@ -51,7 +51,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
+        android:layout_width="426dp"
         android:layout_height="196dp"
         android:background="@drawable/braun_rund_2"
         app:layout_constraintBottom_toBottomOf="parent"

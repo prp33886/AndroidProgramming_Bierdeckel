@@ -56,7 +56,6 @@ class UserInformationsFragment : Fragment() {
         // Userinformationen setzten
             fillUserInfo()
 
-       // binding.userProfilPic.setImageDrawable(app.user.profilPic)
 
         binding.buttonUserinformationSpeichern.setOnClickListener(){
             editUserInformations()
@@ -68,7 +67,6 @@ class UserInformationsFragment : Fragment() {
         }
 
         var c = context
-
         binding.userProfilPic.setOnClickListener(){
 
             showImagePicker(imageIntentLauncher, c!!)
