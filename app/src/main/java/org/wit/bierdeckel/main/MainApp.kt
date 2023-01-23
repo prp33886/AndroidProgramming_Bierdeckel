@@ -1,10 +1,17 @@
 package org.wit.bierdeckel.main
 
 import android.app.Application
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import com.google.android.gms.maps.model.Marker
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.storage.FirebaseStorage
 import org.wit.bierdeckel.models.debtModel
 import org.wit.bierdeckel.models.priceListModel
 import org.wit.bierdeckel.models.userModel
+import java.io.File
+import android.R
 
 
 class MainApp : Application() {
@@ -13,6 +20,8 @@ class MainApp : Application() {
     lateinit var user : userModel
     lateinit var database: DatabaseReference
     var pricelist : priceListModel = priceListModel("default", ArrayList<String>())
+    var markerList = mutableListOf<Marker>()
+    lateinit var loadedProfilpic : Bitmap
 
 
     override fun onCreate() {
@@ -20,9 +29,8 @@ class MainApp : Application() {
         pricelist.setDefault()
         getCurrentPriceList()
 
-
-
     }
+
 
     // ToDo: DB verbindung herstellen
     private fun getCurrentPriceList() {
@@ -63,6 +71,23 @@ class MainApp : Application() {
 
             this.user = userModel(vorName, nachName, alter, geschlecht,email,telefonNummer, userID, land, stadt, schulden)
         }
+
+
+        var picName = uID + "_ProfilPic"
+        var storage = FirebaseStorage.getInstance().reference.child("Profilbilder/$picName")
+
+        val localFile = File.createTempFile("tempImage", "jpg")
+        storage.getFile(localFile).addOnSuccessListener {
+
+
+            loadedProfilpic = BitmapFactory.decodeFile(localFile.absolutePath)
+
+        }.addOnFailureListener{
+
+
+        }
+
+
 
 
 
@@ -114,30 +139,51 @@ class MainApp : Application() {
 
     }
 
+    fun getAppUser() : userModel{
+        var firebaseAuth = FirebaseAuth.getInstance()
+
+        if(this.user==null){
+            getUserDB(firebaseAuth.currentUser!!.uid)
+            return this.user
+        }else{
+            return this.user
+        }
 
 
-    //dummyUser einfügen
-    /*
-
-    fun dummyUser(){
-        var vorName="Hans"
-        var nachName="Huber"
-        var email="Hans-Huber@gmail.com"
-        var telefonNummer="016098790600"
-        var userID ="12345"
-        var geburtsDatum ="01.01.1998"
-        var plz ="84347"
-        var stadt ="Triftern"
-        var strasse ="Am Dornlandl 13"
-        var profilPic = R.drawable.signin_screen.toDrawable()
-
-        //this.user = userModel(vorName, nachName, email, telefonNummer, userID, geburtsDatum, plz, stadt, strasse)
-        //this.user.profilPic=profilPic
-    }*/
+    }
 
 
     //dummyschulden einfügen
 
+
+    fun bookNewDebt(currentDebt: debtModel, amount: Double) {
+
+        var currentUID = currentDebt.schuldnerID.toString()
+
+        getUserDebt(currentUID).schulden = getUserDebt(currentUID).schulden?.plus(amount)
+
+        updateUserDebt(getUserDebt(currentUID))
+
+    }
+
+
+    fun dummyBars(){
+        database = FirebaseDatabase.getInstance("https://prp33886-app-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Bars")
+
+        var barNames = ArrayList<String>()
+        var i =0
+
+
+        while (i<4){
+            var name = "Partyroom ${i}"
+            barNames.add(name)
+
+            i++
+        }
+
+        database.setValue(barNames)
+
+    }
     fun dummySchulden(){
         database = FirebaseDatabase.getInstance("https://prp33886-app-default-rtdb.europe-west1.firebasedatabase.app/").getReference("Schulden")
         var i =0
@@ -150,16 +196,6 @@ class MainApp : Application() {
             i++
         }
 
-
-    }
-
-    fun bookNewDebt(currentDebt: debtModel, amount: Double) {
-
-        var currentUID = currentDebt.schuldnerID.toString()
-
-        getUserDebt(currentUID).schulden = getUserDebt(currentUID).schulden?.plus(amount)
-
-        updateUserDebt(getUserDebt(currentUID))
 
     }
 

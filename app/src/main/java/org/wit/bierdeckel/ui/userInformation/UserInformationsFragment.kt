@@ -1,24 +1,31 @@
 package org.wit.bierdeckel.ui.userInformation
 
+import android.app.ProgressDialog
 import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
-import androidx.core.graphics.drawable.toDrawable
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import org.wit.bierdeckel.MainActivity
-import org.wit.bierdeckel.R
+import com.google.firebase.storage.FirebaseStorage
 import org.wit.bierdeckel.databinding.FragmentUserInformationsBinding
 import org.wit.bierdeckel.main.MainApp
-import org.wit.bierdeckel.models.debtModel
-import org.wit.bierdeckel.models.userModel
+import org.wit.placemark.showImagePicker
+import com.squareup.picasso.Picasso
+import org.wit.bierdeckel.helpers.RoundedTransformation
+import java.io.File
+import java.io.FileOutputStream
+
+
 
 class UserInformationsFragment : Fragment() {
 
@@ -26,6 +33,8 @@ class UserInformationsFragment : Fragment() {
     lateinit var app : MainApp
     private val binding get() = _binding!!
     lateinit var database: DatabaseReference
+    private lateinit var imageIntentLauncher : ActivityResultLauncher<Intent>
+    private lateinit var bildURI : Uri
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,7 +56,6 @@ class UserInformationsFragment : Fragment() {
         // Userinformationen setzten
             fillUserInfo()
 
-       // binding.userProfilPic.setImageDrawable(app.user.profilPic)
 
         binding.buttonUserinformationSpeichern.setOnClickListener(){
             editUserInformations()
@@ -58,7 +66,44 @@ class UserInformationsFragment : Fragment() {
             fillUserInfo()
         }
 
+        var c = context
+        binding.userProfilPic.setOnClickListener(){
+
+            showImagePicker(imageIntentLauncher, c!!)
+
+        }
+        registerImagePickerCallback()
+
+
     }
+
+
+    private fun registerImagePickerCallback() {
+        imageIntentLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+            { result ->
+                when(result.resultCode){
+                    AppCompatActivity.RESULT_OK -> {
+                        if (result.data != null) {
+
+                            val image = result.data!!.data!!
+                            requireContext().contentResolver.takePersistableUriPermission(image,
+                                Intent.FLAG_GRANT_READ_URI_PERMISSION)
+
+                            bildURI = image
+
+                            Picasso.get()
+                                .load(bildURI)
+                                .transform(RoundedTransformation())
+                                .into(binding.userProfilPic)
+
+                        }
+                    }
+                    AppCompatActivity.RESULT_CANCELED -> { } else -> { }
+                }
+            }
+    }
+
 
 
     override fun onDestroyView() {
@@ -68,9 +113,18 @@ class UserInformationsFragment : Fragment() {
 
     fun editUserInformations(){
 
+        val context = requireContext()
+        val progressDialog = ProgressDialog(context)
+        progressDialog.setMessage("Änderung wird verarbeitet!")
+        progressDialog.setCancelable(false)
+        progressDialog.show()
+
+        val bildName = app.user.userID + "_ProfilPic"
 
 
+        val storage = FirebaseStorage.getInstance().getReference("Profilbilder/$bildName")
         database = FirebaseDatabase.getInstance("https://prp33886-app-default-rtdb.europe-west1.firebasedatabase.app/").getReference()
+
 
         var vorname = binding.vorNameTextEingabe.text.toString()
         var nachname= binding.nachNameTextEingabe.text.toString()
@@ -104,6 +158,23 @@ class UserInformationsFragment : Fragment() {
         database.child("Schulden").child(app.user.userID).setValue(newDebt)
         database.child("User").child(app.user.userID).setValue(app.user)
 
+
+        storage.putFile(bildURI).addOnSuccessListener {
+
+
+            Toast.makeText(context, "Erfolgreich geändert!", Toast.LENGTH_LONG)
+            if(progressDialog.isShowing){
+                progressDialog.dismiss()
+            }
+        }.addOnFailureListener(){
+            Toast.makeText(context, "Upload Profilbild fehlgeschlagen!", Toast.LENGTH_LONG)
+            if(progressDialog.isShowing){
+                progressDialog.dismiss()
+            }
+        }
+
+
+
     }
 
     fun fillUserInfo(){
@@ -124,5 +195,26 @@ class UserInformationsFragment : Fragment() {
         binding.StadtTextEingabe.setText(app.user.stadt)
         binding.landTextEingabe.setText(app.user.land)
 
+        if(app.loadedProfilpic!=null){
+
+            // Benötigt dateierstellung um URI zu erhalten .. Format sonst nicht richtig rund
+            val imageFile = File(app.applicationContext.cacheDir, "profilbild.png")
+
+            val os = FileOutputStream(imageFile)
+
+            app.loadedProfilpic.compress(Bitmap.CompressFormat.PNG, 100, os)
+            os.close()
+            val imageUri = Uri.fromFile(imageFile)
+
+
+            Picasso.get()
+                .load(imageUri)
+                .transform(RoundedTransformation())
+                .into(binding.userProfilPic)
+
+        }
+
     }
+
+
 }
