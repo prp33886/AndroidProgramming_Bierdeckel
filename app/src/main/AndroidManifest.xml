@@ -15,11 +15,20 @@
         android:theme="@style/Theme.LoginAndSignUp"
         android:enableOnBackInvokedCallback="true">
         <activity
-            android:name=".ui.debts.BookDebtsActivity"
+            android:name=".ui.debts.AddNewDebtActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
+        </activity>
+        <activity
+            android:name=".ui.debts.BookDebtsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value=""
+                android:parentActivityName=".MainActivity"
+                />
         </activity>
 
         <meta-data

@@ -58,6 +58,29 @@
     <string name="registerPasswortHint">Gib dein Passwort ein</string>
     <string name="alreadyRegistered">Bereits registriert? Logge dich ein!</string>
     <string name="logoDescription">Bierdeckel Logo</string>
+    <string name="menu_bars_map">Private Bars</string>
+
+    <string name="barNameHint">Gib den Namen deiner Bar ein</string>
+    <string name="barKategorie">Gib deine Kategorie ein</string>
+    <string name="barBeschreibung">Beschreibe deine Bar</string>
+    <string name="barAnlegen">Anlegen</string>
+    <string name="hinzufuegen">Hinzufügen</string>
+    <string name="registered">Registriert</string>
+    <string name="alle">Alle</string>
+    <string name="SchuldnerNameHint">Gib den Vornamen ein</string>
+    <string name="SchuldnerNachNameHint">Gib den Nachname ein</string>
+    <string name="customDebtAmountHint">Gib den Schuldenstand ein</string>
+    <string name="deinDeckel">Dein Deckel</string>
+    <string name="kalenderUeberschrift">Bevorstehende Veranstaltungen</string>
+    <string name="select_user_image">Profilbild</string>
+    <string name="menu_beerpong">Beerpong Bestenliste</string>
+    <string name="firstTeamPoints">First Team Points</string>
+    <string name="secondTeamPoints">Second Team Points</string>
+    <string name="thirdTeamPoints">Third Team Points</string>
+    <string name="thirdTeam">Third Team</string>
+    <string name="secondTeam">Second Team</string>
+    <string name="firstTeam">First Team</string>
+    <string name="theme_change">Theme ändern</string>
 
 
 </resources>

@@ -6,12 +6,12 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@android:drawable/btn_star"
+            android:icon="@drawable/home"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@android:drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/nav_beerpong"
+            android:icon="@drawable/beerpong_icon"
+            android:title="@string/menu_beerpong" />
         <item
             android:id="@+id/nav_barsMap"
             android:icon="@android:drawable/ic_menu_mapmode"
@@ -35,4 +35,5 @@
             android:title="@string/menu_logout" />
 
     </group>
+
 </menu>
